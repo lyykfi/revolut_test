@@ -1,0 +1,34 @@
+{
+    "name": "revolut",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "git@github.com:lyykfi/revolut_test.git",
+    "author": "Andrey Makar-Uvarov <andrey.makar-uvarov@hugo.events>",
+    "license": "MIT",
+    "devDependencies": {
+        "babel-core": "^6.26.0",
+        "babel-jest": "^22.0.4",
+        "babel-loader": "^7.1.2",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-preset-flow": "^6.23.0",
+        "babel-preset-react": "^6.24.1",
+        "jest": "^22.0.5",
+        "regenerator-runtime": "^0.11.1",
+        "webpack": "^3.10.0",
+        "webpack-dev-server": "^2.10.1"
+    },
+    "scripts": {
+        "webpack": "webpack",
+        "dev": "webpack-dev-server",
+        "start": "http-server",
+        "test": "jest"
+    },
+    "jest": {
+        "modulePaths": [
+            "./src"
+        ]
+    },
+    "dependencies": {
+        "isomorphic-fetch": "^2.2.1"
+    }
+}
