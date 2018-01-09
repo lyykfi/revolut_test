@@ -10,8 +10,22 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.js$/,
+                test: [/\.js$/, /\.jsx$/],
                 loader: 'babel-loader'
+            },
+            {
+                test: /\.less$/,
+                use: [
+                    {
+                        loader: "style-loader"
+                    },
+                    {
+                        loader: "css-loader"
+                    },
+                    {
+                        loader: "less-loader"
+                    }
+                ]
             }
         ]
     },
@@ -19,10 +33,8 @@ module.exports = {
         colors: true
     },
     resolve: {
-        modules: [
-            path.resolve('./src'),
-            path.resolve('./node_modules')
-        ]
+        modules: [path.resolve(__dirname, "src"), "node_modules"],
+        extensions: ['.js', '.jsx'],
     },
     devtool: 'source-map'
 };
