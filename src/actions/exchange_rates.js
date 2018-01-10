@@ -12,7 +12,7 @@ export function getLatest() {
         const result = await exchangeRatesService.getLatest();
 
         return dispatch(getLatestSuccess(result));
-    }
+    };
 }
 
 /**
@@ -23,5 +23,5 @@ function getLatestSuccess(result) {
     return {
         type: EXCHANGE_RATES.GET_LATEST_SUCCESS,
         payload: result
-    }
+    };
 }
