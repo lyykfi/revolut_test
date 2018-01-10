@@ -1,17 +1,16 @@
-const path = require('path');
-const webpack = require('webpack');
+const path = require("path");
 
 module.exports = {
-    entry: './src/app.jsx',
+    entry: ["babel-polyfill", "./src/app.jsx"],
     output: {
-        path: path.resolve(__dirname, 'build'),
-        filename: 'app.bundle.js'
+        path: path.resolve(__dirname, "build"),
+        filename: "app.bundle.js"
     },
     module: {
         loaders: [
             {
                 test: [/\.js$/, /\.jsx$/],
-                loader: 'babel-loader'
+                loader: "babel-loader"
             },
             {
                 test: /\.less$/,
@@ -53,7 +52,7 @@ module.exports = {
     },
     resolve: {
         modules: [path.resolve(__dirname, "src"), "node_modules"],
-        extensions: ['.js', '.jsx'],
+        extensions: [".js", ".jsx"],
     },
-    devtool: 'source-map'
+    devtool: "source-map"
 };
