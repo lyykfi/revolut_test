@@ -123,7 +123,7 @@ export default class ExchangeRates extends React.Component<Props> {
         this.formApi.setAllValues({
             inputCurrency: formState.values.outCurrency,
             outCurrency: formState.values.inputCurrency,
-            money: formState.values.outMoney
+            money: Math.ceil(parseFloat(formState.values.outMoney))
         });
     }
 
