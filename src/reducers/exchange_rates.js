@@ -1,12 +1,15 @@
 // @flow
+import EXCHANGE_RATES from "constants/exchange_rates";
 
-export default function exchangeRates(state = 0, action) {
-  switch (action.type) {
-    case 'INCREMENT':
-      return state + 1
-    case 'DECREMENT':
-      return state - 1
-    default:
-      return state
-  }
+/**
+ *
+ * @method exchangeRates
+ */
+export default function exchangeRates(state = [], action) {
+    switch (action.type) {
+        case EXCHANGE_RATES.GET_LATEST_SUCCESS:
+          return action.payload;
+        default:
+          return state;
+    }
 }

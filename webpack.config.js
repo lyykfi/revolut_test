@@ -26,6 +26,25 @@ module.exports = {
                         loader: "less-loader"
                     }
                 ]
+            },
+            {
+                test: /\.css/,
+                use: [
+                    {
+                        loader: "style-loader"
+                    },
+                    {
+                        loader: "css-loader"
+                    }
+                ]
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                use: [
+                    {
+                        loader: "file-loader"
+                    }
+                ]
             }
         ]
     },

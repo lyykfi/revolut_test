@@ -5,7 +5,7 @@ let instance = null;
  *
  * @type {String}
  */
-const SOURCE_URL = "http://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml";
+const SOURCE_URL = "https://www.cbr-xml-daily.ru/daily_json.js";
 
 /**
  *
@@ -54,25 +54,25 @@ export default class ExchangeRatesService {
         const result = await fetch(SOURCE_URL);
 
         if(result.ok) {
-            const text = await result.text();
+            const json = await result.json();
 
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(text, "text/xml");
-            const cubes = xmlDoc.getElementsByTagName("Cube");
             const currents: ExchangeRatesList = [];
 
-            for (let i = 0; i < cubes.length; i++) {
-                const cube = cubes[i];
+            if(json && json.Valute) {
+                const valute = json.Valute;
 
-                if(cube) {
-                    const currency = cube.getAttribute("currency");
+                currents.push({
+                    currency: "RUB",
+                    rate: 1
+                });
 
-                    if(currency) {
-                        currents.push({
-                            currency,
-                            rate: parseFloat(cube.getAttribute("rate"))
-                        });
-                    }
+                for(let key in valute) {
+                    const item = valute[key];
+
+                    currents.push({
+                        currency: item.CharCode,
+                        rate: item.Value
+                    });
                 }
             }
 
