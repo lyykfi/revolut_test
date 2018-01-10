@@ -3,6 +3,7 @@ const path = require("path");
 module.exports = {
     entry: ["babel-polyfill", "./src/app.jsx"],
     output: {
+        publicPath: "build",
         path: path.resolve(__dirname, "build"),
         filename: "app.bundle.js"
     },
