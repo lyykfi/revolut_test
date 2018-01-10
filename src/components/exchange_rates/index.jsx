@@ -97,10 +97,6 @@ export default class ExchangeRates extends React.Component<Props> {
     formDidUpdate = (formState) => {
         const {exchangeRates} = this.props;
 
-        if(!formState.values.money) {
-            this.formApi.setValue("money", "1");
-        }
-
         const money = parseInt(formState.values.money, 10);
         const inputCurrency = formState.values.inputCurrency;
         const outCurrency = formState.values.outCurrency;

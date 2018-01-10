@@ -42,7 +42,10 @@ module.exports = {
                 test: /\.(eot|svg|ttf|woff|woff2)$/,
                 use: [
                     {
-                        loader: "file-loader"
+                        loader: "file-loader",
+                        options: {
+                            name: "[path][name].[ext]"
+                        }
                     }
                 ]
             }
